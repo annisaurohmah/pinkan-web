@@ -1053,6 +1053,7 @@ body{
 	background-repeat:no-repeat;
 	position:relative;
 }
+
 .why-choose .choose-right .video {
 	color: #fff;
 	height: 70px;
@@ -1751,37 +1752,35 @@ body{
 /*========================
 	Start Clients CSS
 ==========================*/
-.clients{
-	background-image:url('img/client-bg.jpg');
-	background-size:cover;
-	background-position:center;
-	padding:100px 0px;
-	position:relative;
-}
 .clients-slider {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-	height: 100%;
-	width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.object-contain{
+	object-fit: contain;	
+}
+.custom-img {
+	height: 100px; /* Ganti dengan tinggi yang diinginkan */
+	width: auto;
+	object-fit: contain; /* Atau gunakan 'cover' sesuai kebutuhan */
 }
 
 .single-clients {
-	display: flex;
-	justify-content: center;
-	align-self: center;
-	align-items: center; /* Ensure this aligns items vertically */
-	height: 50%;
-	width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
 }
 
 .single-clients img {
-	max-height: 80%; /* Use max-height to keep the aspect ratio */
-	width: auto; /* Adjust the width automatically */
-	cursor: pointer;
-	padding: 0 35px;
+	max-height: 150px;
+    height: 100%; /* Set a fixed height */
+    width: auto; /* Maintain aspect ratio */
+    cursor: pointer;
 }
+
 /*========================
 	End Clients CSS
 ==========================*/
@@ -3586,6 +3585,18 @@ body{
 .mail-seccess .success-inner .btn{
 	color:#fff;
 }
+
+
+.animated-div {
+	background-color: var(--secondary2);
+	height: 3px;
+	width: 0;
+	transition: width 2s ease-in-out;
+}
+
+.animated-div.expand {
+	width: 30%;
+}
 /*===========================
 	End Mail Success CSS
 =============================*/ 
@@ -3594,7 +3605,7 @@ body{
 	Start Newsletter CSS
 ===========================*/  
 .newsletter{
-	background:#EDF2FF;
+	background: #fff;
 }
 .newsletter .subscribe-text{}
 .newsletter .subscribe-text h6{

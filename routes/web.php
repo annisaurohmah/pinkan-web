@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-})->name('home');
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-Route::get('/contact', function () {
+})->name('beranda');
+Route::get('/tentang', function () {
     return view('contact');
-})->name('contact');
-Route::get('/blog', function () {
+})->name('tentang');
+Route::get('/tutorial', function () {
     return view('blog-single');
-})->name('services');
+})->name('tutorial');
+Route::get('/unduh', function (){
+    return view('download');
+})->name('unduh');

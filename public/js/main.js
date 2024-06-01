@@ -32,6 +32,13 @@ Version:	1.1
 =========================================
 [End Activation Code]
 =========================================*/ 
+
+window.addEventListener('load', function() {
+	document.querySelectorAll('.animated-div').forEach(function(div) {
+		div.classList.add('expand');
+	});
+});
+
 (function($) {
     "use strict";
      $(document).on('ready', function() {

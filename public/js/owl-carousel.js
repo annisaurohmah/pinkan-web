@@ -891,3 +891,25 @@ function(a, b) {
         for (d in Object.getOwnPropertyNames(this)) "function" != typeof this[d] && (this[d] = null)
     }, a.fn.owlCarousel.Constructor.Plugins.Hash = c
 }(window.Zepto || window.jQuery, window, document);
+
+    $(document).ready(function(){
+        $(".clients-slider").owlCarousel({
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 1000, // 1 second delay
+            smartSpeed: 1000, // 2 seconds transition speed
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 5
+                }
+            }
+        });
+    });

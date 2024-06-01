@@ -572,7 +572,7 @@ Version:	1.1
 	text-align: center;
 }
 .slider .single-slider {
-	height: 380px;
+	height:fit-content ;
 }
 .schedule {
 	background: #fff;
@@ -1060,7 +1060,7 @@ Version:	1.1
 	text-align: center;
 }
 .slider .single-slider {
-	height: 380px;
+	height: fit-content;
 }
 .schedule {
 	background: #fff;

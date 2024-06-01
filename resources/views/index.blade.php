@@ -55,31 +55,12 @@
 				<div class="loader-inner"></div>
 
 				<div class="indicator">
-					<!-- <svg width="16px" height="12px">
-						<polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-						<polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
-					</svg> -->
 					<img src="img/logo.svg" width="25px" height="2rem" alt="#">
 				</div>
 			</div>
 		</div>
 		<!-- End Preloader -->
 
-		<!-- Get Pro Button
-		<ul class="pro-features">
-			<a class="get-pro" href="#">Get Pro</a>
-			<li class="big-title">Pro Version Available on Themeforest</li>
-			<li class="title">Pro Version Features</li>
-			<li>2+ premade home pages</li>
-			<li>20+ html pages</li>
-			<li>Color Plate With 12+ Colors</li>
-			<li>Sticky Header / Sticky Filters</li>
-			<li>Working Contact Form With Google Map</li>
-			<div class="button">
-				<a href="http://preview.themeforest.net/item/mediplus-medical-and-doctor-html-template/full_screen_preview/26665910?_ga=2.145092285.888558928.1591971968-344530658.1588061879" target="_blank" class="btn">Pro Version Demo</a>
-				<a href="https://themeforest.net/item/mediplus-medical-and-doctor-html-template/26665910" target="_blank" class="btn">Buy Pro Version</a>
-			</div>
-		</ul> -->
 
 		<!-- Header Area -->
 		<header class="header">
@@ -91,7 +72,7 @@
 							<div class="col-lg-4  col-md-4 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-									<a href="index.html">
+									<a href="{{ route('beranda') }}">
 										<img src="{{ asset('img/logo_pinkan.png') }}" width="50px" height="5rem" alt="#">
 										<img src="img/PINKAN.svg" width="150px" height="5rem" alt="#">
 									</a>
@@ -106,25 +87,16 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="#">Beranda</a>
+											<li class="active"><a href="{{ route('beranda') }}">Beranda</a>
 												<!-- <ul class="dropdown">
 													<li><a href="index.html">Home Page 1</a></li>
 												</ul> -->
 											</li>
-											<li><a href="#">Unduh </a></li>
+											<li><a href="{{ route('unduh') }}">Unduh </a></li>
 
-											<li><a href="#">Tutorial </a></li>
-											<!-- <li><a href="#">Pages <i class="icofont-rounded-down"></i></a>
-												<ul class="dropdown">
-													<li><a href="404.html">404 Error</a></li>
-												</ul>
-											</li> -->
-											<!-- <li><a href="#">Artikel</a>
-												<ul class="dropdown">
-													<li><a href="blog-single.html">Blog Details</a></li>
-												</ul> -->
+											<li><a href="{{ route('tutorial') }}">Tutorial </a></li>
 											</li>
-											<li><a href="contact.html">Tentang</a>
+											<li><a href="{{ route('tentang') }}">Tentang</a>
 											</li>
 										</ul>
 									</nav>
@@ -171,10 +143,10 @@
 				</div>
 				<!-- End Single Slider -->
 				<!-- Start Single Slider -->
-				<div class="single-slider" style="background-image:url('img/slider.jpg')">
+				<div class="single-slider" style="background-image:url('img/background.png')">
 					<div class="container">
 						<div class="row">
-							<div class="col-lg-7">
+						<div class="col-lg-7 col-md-12">
 								<div class="text">
 									<h1>Bantu <span>Anak ADHD</span> Belajar dengan Menyenangkan Bersama <span>Pinkan! </span></h1>
 									<p>Selamat Datang di Pinkan: Pintar Belajar dengan Interaksi Permainan sebagai Game-based Learning Intervensi Anak ADHD Menggunakan Computer Vision </p>
@@ -184,15 +156,20 @@
 									</div>
 								</div>
 							</div>
+							<div class="col-lg-5 col-md-12 d-flex align-items-center">
+								<div class="image">
+									<img src="img/image.png" alt="#">
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 				<!-- Start End Slider -->
 				<!-- Start Single Slider -->
-				<div class="single-slider" style="background-image:url('img/slider3.jpg')">
+				<div class="single-slider" style="background-image:url('img/background.png')">
 					<div class="container">
 						<div class="row">
-							<div class="col-lg-7">
+						<div class="col-lg-7 col-md-12">
 								<div class="text">
 									<h1>Bantu <span>Anak ADHD</span> Belajar dengan Menyenangkan Bersama <span>Pinkan! </span></h1>
 									<p>Selamat Datang di Pinkan: Pintar Belajar dengan Interaksi Permainan sebagai Game-based Learning Intervensi Anak ADHD Menggunakan Computer Vision </p>
@@ -200,6 +177,11 @@
 										<a href="#" class="btn">Unduh Sekarang</a>
 										<a href="#" class="btn primary">Pelajari Lebih Lanjut</a>
 									</div>
+								</div>
+							</div>
+							<div class="col-lg-5 col-md-12 d-flex align-items-center">
+								<div class="image">
+									<img src="img/image.png" alt="#">
 								</div>
 							</div>
 						</div>
@@ -217,8 +199,7 @@
 						<div class="section-title">
 							<h2>Bagaimana Metode Belajar dan Teknologi PINKAN?</h2>
 							<div class="d-flex justify-content-center">
-								<div style="background-color: var(--secondary2); height: 3px; width: 30%">
-								</div>
+								<div class="animated-div animatedDiv" id="animatedDiv"></div>
 							</div>
 						</div>
 					</div>
@@ -270,53 +251,48 @@
 						<div class="section-title">
 							<h2>Statistik PINKAN</h2>
 							<div class="d-flex justify-content-center">
-								<div style="background-color: var(--secondary2); height: 3px; width: 30%">
-								</div>
+								<div class="animated-div animatedDiv" id="animatedDiv"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-3 col-md-6 col-12">
+					<div class="col-lg-3 col-md-6 col-12 text-center mb-5 mb-lg-0">
 						<!-- Start Single Fun -->
 						<div class="single-fun">
-							<i class="icofont icofont-download"></i>
-							<div class="content">
-								<span class="counter">100</span>
+							<div class="content ">
+								<span class="counter h1 fw-bold">100</span>
 								<p>Unduhan</p>
 							</div>
 						</div>
 						<!-- End Single Fun -->
 					</div>
-					<div class="col-lg-3 col-md-6 col-12">
+					<div class="col-lg-3 col-md-6 col-12 text-center mb-5 mb-lg-0">
 						<!-- Start Single Fun -->
 						<div class="single-fun">
-							<i class="icofont icofont-user-alt-3"></i>
 							<div class="content">
-								<span class="counter">557</span>
+								<span class="counter h1 fw-bold">557</span>
 								<p>Akun</p>
 							</div>
 						</div>
 						<!-- End Single Fun -->
 					</div>
 
-					<div class="col-lg-3 col-md-6 col-12">
+					<div class="col-lg-3 col-md-6 col-12 text-center mb-5 mb-lg-0">
 						<!-- Start Single Fun -->
 						<div class="single-fun">
-							<i class="icofont-simple-smile"></i>
 							<div class="content">
-								<span class="counter">4379</span>
+								<span class="counter h1 fw-bold">4379</span>
 								<p>Pengguna Aktif</p>
 							</div>
 						</div>
 						<!-- End Single Fun -->
 					</div>
-					<div class="col-lg-3 col-md-6 col-12">
+					<div class="col-lg-3 col-md-6 col-12 text-center mb-5 mb-lg-0">
 						<!-- Start Single Fun -->
 						<div class="single-fun">
-							<i class="icofont icofont-clock-time"></i>
 							<div class="content">
-								<span class="counter">557</span>
+								<span class="counter h1 fw-bold">557</span>
 								<p>Sesi Per Hari</p>
 							</div>
 						</div>
@@ -335,177 +311,122 @@
 						<div class="section-title">
 							<h2>Temukan Inovasi Metode Belajar Anak <span> ADHD </span></h2>
 							<div class="d-flex justify-content-center">
-								<div style="background-color: var(--secondary2); height: 3px; width: 30%">
-								</div>
+								<div class="animated-div animatedDiv" id="animatedDiv"></div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row my-5 align-items-center">
+					<div class="col-lg-6 col-12">
+						<div class="choose-image">
+							<img src="{{ asset('img\petulangan1.png') }}" class="img-fluid" alt="#">
+						</div>
+					</div>
+					<div class="col-lg-6 col-12 p-4">
+						<div class="choose-left">
+							<h3>Belajar Membaca dari Dasar</h3>
+							<p>Pinkan menghadirkan pembelajaran membaca yang dirancang khusus untuk anak-anak dan pemula dalam membaca. Fitur ini menawarkan pendekatan interaktif dan menyenangkan untuk mengenal huruf, suku kata, dan kata-kata sederhana. Dengan ilustrasi yang menarik dan permainan yang edukatif, pengguna dapat belajar membaca dengan cara yang menyenangkan dan tanpa tekanan. Setiap sesi pembelajaran dilengkapi dengan audio yang jelas dan instruksi yang mudah dipahami, memastikan bahwa setiap anak dapat belajar dengan ritme mereka sendiri.</p>
+
+						</div>
+					</div>
+				</div>
+				<!-- 2 -->
+				<div class="row my-5 align-items-center">
+					<div class="col-lg-6 col-12">
+						<div class="choose-left">
+							<h3>Belajar Menghitung dengan Asyik</h3>
+							<p>Pinkan menghadirkan pembelajaran menghitung yang dirancang untuk menjadikan proses belajar menghitung sebagai pengalaman yang menyenangkan dan memikat bagi anak-anak. Fitur ini menggabungkan permainan interaktif, animasi ceria, dan tantangan menarik yang membantu anak-anak memahami konsep dasar matematika seperti angka, penjumlahan, pengurangan, dan pengenalan pola. Dengan bimbingan audio yang ramah dan petunjuk visual yang jelas, anak-anak dapat belajar menghitung dengan cara yang menyenangkan dan tanpa stres. </p>
+
+						</div>
+					</div>
+					<div class="col-lg-6 col-12">
+						<div class="choose-image">
+							<img src="{{ asset('img\petulangan1.png') }}" alt="#">
+						</div>
+					</div>
+				</div>
+				<!-- 3 -->
+				<div class="row my-5 align-items-center">
 					<div class="col-lg-6 col-12">
 						<div class="choose-image">
 							<img src="{{ asset('img\petulangan1.png') }}" alt="#">
 						</div>
 					</div>
 					<div class="col-lg-6 col-12">
-						<div class="choose-right">
-						<h3>Belajar Membaca dari Nol</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pharetra antege vel est lobortis, a commodo magna rhoncus. In quis nisi non emet quam pharetra commodo. </p>
-							<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+						<div class="choose-left">
+							<h3>Pantau Progres Belajar Darimana Saja</h3>
+							<p>Pinkan memungkinkan orang tua dan pengajar untuk memantau perkembangan belajar anak secara real-time dari mana saja. Terintegrasi dengan website Pinkan, fitur ini memungkinkan pengguna untuk masuk akun dan mengakses data kemajuan belajar melalui perangkat apapun. Melalui dashboard yang intuitif, orang tua dan pengajar dapat melihat statistik detail, seperti waktu yang dihabiskan pada setiap aktivitas, skor yang dicapai, dan area yang memerlukan perhatian lebih. Dengan fitur ini, orang tua maupun pengajae dapat memberikan dukungan yang lebih efektif dan menyesuaikan metode pembelajaran sesuai kebutuhan anak. </p>
+						</div>
+					</div>
+
+				</div>
+				<!-- 4 -->
+				<div class="row my-5 align-items-center">
+					<div class="col-lg-6 col-12">
+						<div class="choose-left">
+							<h3>Latih Motorik Anak dengan Kontrol Game Aktif</h3>
+							<p>Pinkan dirancang untuk membantu anak-anak mengembangkan keterampilan motorik mereka melalui permainan yang mengharuskan pergerakan tangan dan tubuh. Berbeda dengan game tradisional yang hanya mengandalkan gerakan kursor, fitur ini memanfaatkan teknologi canggih untuk mendeteksi dan merespons gerakan fisik anak-anak. Dengan berbagai aktivitas interaktif yang mengajak anak-anak untuk melompat, berlari, dan menggerakkan tangan, fitur ini tidak hanya meningkatkan koordinasi dan kekuatan motorik, tetapi juga menjadikan proses belajar lebih menyenangkan dan bermanfaat. Melalui latihan yang menyeluruh, anak-anak dapat mengembangkan keterampilan fisik mereka sambil menikmati pengalaman bermain yang dinamis dan inovatif.</p>
 
 						</div>
 					</div>
+					<div class="col-lg-6 col-12">
+						<div class="choose-image">
+							<img src="{{ asset('img\petulangan1.png') }}" alt="#">
+						</div>
+					</div>
 				</div>
+
 			</div>
 		</section>
 		<!--/ End Why choose -->
 
-		
+
 		<!-- Start clients -->
 		<div class="clients overlay">
-			<div class="container">
+			<div class="container py-5">
 				<div class="row">
-					<div class="col-lg-12 col-md-12 col-12">
-						<div class="owl-carousel clients-slider">
-							<div class="single-clients">
-								<img src="img/kemendikbud.png" alt="#">
+					<div class="col-lg-12">
+						<div class="section-title">
+							<h2>Didukung oleh </span></h2>
+							<div class="d-flex justify-content-center">
+								<div class="animated-div animatedDiv" id="animatedDiv"></div>
 							</div>
-							<div class="single-clients">
-								<img src="img/merdeka.png" alt="#">
-							</div>
-							<div class="single-clients">
-								<img src="img/Logo-Kampus-Merdeka.png" alt="#">
-							</div>
-							<div class="single-clients">
-								<img src="img/Logo-PKM-Warna.png" alt="#">
-							</div>
-							<div class="single-clients">
-								<img src="img/simbel.png" alt="#">
-							</div>
-							<div class="single-clients">
-								<img height="100px" width="120px" src="img/logo-ugm.png" alt="#">
-							</div>
-							
 						</div>
+					</div>
+				</div>
+
+				<div class="row justify-content-center align-items-center">
+					<div class="col-6 col-sm-3 col-md-2">
+						<img class="custom-img mx-auto d-block" src="img/kemendikbud.png" alt="#">
+					</div>
+					<div class="col-6 col-sm-3 col-md-2">
+						<img class="custom-img mx-auto d-block" src="img/merdeka.png" alt="#">
+					</div>
+					<div class="col-6 col-sm-3 col-md-2">
+						<img class="custom-img mx-auto d-block" src="img/Logo-Kampus-Merdeka.png" alt="#">
+					</div>
+					<div class="col-6 col-sm-3 col-md-2">
+						<img class="custom-img mx-auto d-block" src="img/Logo-PKM-Warna.png" alt="#">
+					</div>
+					<div class="col-6 col-sm-3 col-md-2">
+						<img class="custom-img mx-auto d-block" src="img/simbel.png" alt="#">
+					</div>
+					<div class="col-6 col-sm-3 col-md-2">
+						<img class="custom-img mx-auto d-block" src="img/logo-ugm.png">
 					</div>
 				</div>
 			</div>
 		</div>
 		<!--/Ens clients -->
 
-		<!-- Start Appointment -->
-		<section class="appointment">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="section-title">
-							<h2>We Are Always Ready to Help You. Book An Appointment</h2>
-							<img src="img/section-img.png" alt="#">
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit praesent aliquet. pretiumts</p>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-6 col-md-12 col-12">
-						<form class="form" action="#">
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input name="name" type="text" placeholder="Name">
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input name="email" type="email" placeholder="Email">
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input name="phone" type="text" placeholder="Phone">
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<div class="nice-select form-control wide" tabindex="0"><span class="current">Department</span>
-											<ul class="list">
-												<li data-value="1" class="option selected ">Department</li>
-												<li data-value="2" class="option">Cardiac Clinic</li>
-												<li data-value="3" class="option">Neurology</li>
-												<li data-value="4" class="option">Dentistry</li>
-												<li data-value="5" class="option">Gastroenterology</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<div class="nice-select form-control wide" tabindex="0"><span class="current">Doctor</span>
-											<ul class="list">
-												<li data-value="1" class="option selected ">Doctor</li>
-												<li data-value="2" class="option">Dr. Akther Hossain</li>
-												<li data-value="3" class="option">Dr. Dery Alex</li>
-												<li data-value="4" class="option">Dr. Jovis Karon</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-6 col-12">
-									<div class="form-group">
-										<input type="text" placeholder="Date" id="datepicker">
-									</div>
-								</div>
-								<div class="col-lg-12 col-md-12 col-12">
-									<div class="form-group">
-										<textarea name="message" placeholder="Write Your Message Here....."></textarea>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-lg-5 col-md-4 col-12">
-									<div class="form-group">
-										<div class="button">
-											<button type="submit" class="btn">Book An Appointment</button>
-										</div>
-									</div>
-								</div>
-								<div class="col-lg-7 col-md-8 col-12">
-									<p>( We will be confirm by an Text Message )</p>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="col-lg-6 col-md-12 ">
-						<div class="appointment-image">
-							<img src="img/contact-img.png" alt="#">
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End Appointment -->
-
 		<!-- Start Newsletter Area -->
 		<section class="newsletter section">
 			<div class="container">
-				<div class="row ">
-					<div class="col-lg-6  col-12">
-						<!-- Start Newsletter Form -->
-						<div class="subscribe-text ">
-							<h6>Sign up for newsletter</h6>
-							<p class="">Cu qui soleat partiendo urbanitas. Eum aperiri indoctum eu,<br> homero alterum.</p>
-						</div>
-						<!-- End Newsletter Form -->
-					</div>
-					<div class="col-lg-6  col-12">
-						<!-- Start Newsletter Form -->
-						<div class="subscribe-form ">
-							<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-								<input name="EMAIL" placeholder="Your email address" class="common-input" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'" required="" type="email">
-								<button class="btn">Subscribe</button>
-							</form>
-						</div>
-						<!-- End Newsletter Form -->
-					</div>
+				<div class="row justify-content-center mb-4">
+					<h4>Belajar Lebih Mudah dan Menyenangkan Bersama Pinkan!</h4>
+				</div>
+				<div class="row justify-content-center">
+					<button class="btn">Unduh Sekarang</button>
 				</div>
 			</div>
 		</section>
@@ -517,67 +438,49 @@
 			<div class="footer-top">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-3 col-md-6 col-12">
+						<div class="col-lg-4  col-md-6 col-12">
 							<div class="single-footer">
-								<h2>About Us</h2>
-								<p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
+								<h2>Tentang Kami</h2>
+								<p>PINKAN merupakan hasil karya dari Tim Program Kreativitas Mahasiswa Karsa Cipta dari Universitas Gadjah Mada yang memperoleh pendanaan dari Kemendikbudristek</p>
 								<!-- Social -->
 								<ul class="social">
-									<li><a href="#"><i class="icofont-facebook"></i></a></li>
-									<li><a href="#"><i class="icofont-google-plus"></i></a></li>
-									<li><a href="#"><i class="icofont-twitter"></i></a></li>
-									<li><a href="#"><i class="icofont-vimeo"></i></a></li>
-									<li><a href="#"><i class="icofont-pinterest"></i></a></li>
+									<li><a href="https://web.facebook.com/profile.php?id=61558771388079"><i class="icofont-facebook"></i></a></li>
+									<li><a href="https://www.instagram.com/pkmkcugm_pinkan/"><i class="icofont-instagram"></i></a></li>
+									<li><a href="https://www.youtube.com/channel/UCohbysOgnN8rT1sJTHfOvIQ"><i class="icofont-youtube"></i></a></li>
 								</ul>
 								<!-- End Social -->
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-6 col-12">
+						<div class="col-lg-4 col-md-6 col-12">
 							<div class="single-footer f-link">
-								<h2>Quick Links</h2>
+								<h2>Tautan Cepat</h2>
 								<div class="row">
 									<div class="col-lg-6 col-md-6 col-12">
 										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>
+											<li><a href="{{ route('beranda') }}"><i class="fa fa-caret-right" aria-hidden="true"></i>Beranda</a></li>
+											<li><a href="{{ route('unduh') }}"><i class="fa fa-caret-right" aria-hidden="true"></i>Unduh</a></li>
+											
 										</ul>
 									</div>
 									<div class="col-lg-6 col-md-6 col-12">
 										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>
+										
+											<li><a href="{{ route('tutorial') }}"><i class="fa fa-caret-right" aria-hidden="true"></i>Tutorial</a></li>
+											<li><a href="{{ route('tentang') }}"><i class="fa fa-caret-right" aria-hidden="true"></i>Tentang</a></li>
 										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-6 col-12">
+						<div class="col-lg-4 col-md-6 col-12">
 							<div class="single-footer">
-								<h2>Open Hours</h2>
-								<p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
-								<ul class="time-sidual">
-									<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-									<li class="day">Saturday <span>9.00-18.30</span></li>
-									<li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-								</ul>
+								<h2>Kontak</h2>
+								<p>Hubungi terkait informasi dan pembaruan</p>
+								
+								<p>pkmkcpinkan@gmail.com</p>
 							</div>
 						</div>
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer">
-								<h2>Newsletter</h2>
-								<p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
-								<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-									<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email address'" required="" type="email">
-									<button class="button"><i class="icofont icofont-paper-plane"></i></button>
-								</form>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -588,7 +491,7 @@
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-12">
 							<div class="copyright-content">
-								<p>© Copyright 2018 | All Rights Reserved by <a href="https://www.wpthemesgrid.com" target="_blank">wpthemesgrid.com</a> </p>
+								<p>© Copyright 2024 | Tim PKM KC Pinkan </p>
 							</div>
 						</div>
 					</div>
