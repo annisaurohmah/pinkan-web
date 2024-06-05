@@ -501,8 +501,8 @@ Preloader Area CSS
 	top:0;
 	height:100%;
 	width:100%;
-	background: var(--secondary3);
-	opacity:0.8;
+	background: var(--primary);
+	opacity:0.2;
 }
 /* Bread Crumbs */
 .breadcrumbs {

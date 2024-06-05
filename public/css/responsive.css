@@ -8,6 +8,10 @@ Version:	1.1
 /* Tablet Screen */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 /* Header Sticky */
+body{
+	overflow-x: hidden;
+}
+
 .section{
 	padding:70px 0px;
 }
@@ -280,6 +284,7 @@ Version:	1.1
 }
 .news-single .single-main {
 	margin-top: 0;
+	padding: 20px 0px;
 }
 .newsletter .subscribe-text {
 	text-align: center;
@@ -377,6 +382,10 @@ Version:	1.1
 }
 /* Mobile Screen */
 @media only screen and (max-width: 767px) {
+	body{
+		overflow-x: hidden;
+	}
+	
 .header.sticky{
 	
 }

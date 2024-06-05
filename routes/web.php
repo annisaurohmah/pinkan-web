@@ -14,14 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
-})->name('beranda');
+    return view('index');})->name('beranda');
 Route::get('/tentang', function () {
-    return view('contact');
-})->name('tentang');
+    return view('contact');})->name('tentang');
 Route::get('/tutorial', function () {
-    return view('blog-single');
-})->name('tutorial');
+    return view('bantuan');})->name('bantuan');
 Route::get('/unduh', function (){
-    return view('download');
-})->name('unduh');
+    return view('download');})->name('unduh');
+Route::get('/login', function (){
+    return view('login');})->name('login');
+Route::get('/detail-bantuan', function (){
+    return view('bantuan-content');})->name('detail-bantuan');
