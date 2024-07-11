@@ -24,8 +24,8 @@
                                 </div>
                                 @endif
 
-                                <form action="{{ route('home') }}" class="user">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <form method="POST" action="{{ route('api-register') }}" class="user">
+                                    @csrf
 
                                     <div class="form-group">
                                         <label for="first_name">Nama Depan</label>

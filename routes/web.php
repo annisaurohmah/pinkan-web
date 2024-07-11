@@ -34,7 +34,7 @@ Route::get('/bantuan-instalasi', function(){
 Route::get('/bantuan-monitor', function(){
     return view('./bantuan-details/bantuan-monitor');})->name('bantuan-monitor');
 Route::get('/bantuan-pantau', function(){
-return view('/bantuan-details/bantuan-pantau');})->name('bantuan-pantau');
+return view('r/bantuan-details/bantuan-pantau');})->name('bantuan-pantau');
 
 Route::get('/detail-bantuan', function () {return view('bantuan-content');})->name('detail-bantuan');
 Route::get('/register', function () {return view('auth.register');})->name('register');

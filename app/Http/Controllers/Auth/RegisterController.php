@@ -69,10 +69,14 @@ class RegisterController extends Controller
                             'first_name' => $request->first_name,
                             'last_name' => $request->last_name,
                             'username' => $request->username,
-                            'date_of_birth' => $request->date_of_birth
+                            'date_of_birth' => $request->date_of_birth,
+                            'password' => $request->password,
+                            'password_confirmation' => $request->password_confirmation,
             ]);
 
             $data = json_decode($response->getBody(), true);
+
+
 
             if ($response->status() === 200 && isset($data['token'])) {
                 // Simpan token di sesi
