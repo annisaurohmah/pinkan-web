@@ -78,7 +78,7 @@
 		<!--/ End Slider Area -->
 		<!-- Start Feautes -->
 		<section class="Feautes section">
-			<div class="container">
+			<div class="container reveal">
 				<div class="row">
 					<div class="col-lg-12 mt-5">
 						<div class="section-title">
@@ -130,7 +130,7 @@
 
 		<!-- Start Fun-facts -->
 		<div id="fun-facts" class="fun-facts section overlay">
-			<div class="container">
+			<div class="container reveal">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
@@ -142,7 +142,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-3 col-md-6 col-12 text-center mb-5 mb-lg-0">
+					<div class="col-lg-3 col-md-6 col-12 mb-5 mb-lg-0">
 						<!-- Start Single Fun -->
 						<div class="single-fun">
 							<div class="content ">
@@ -152,7 +152,7 @@
 						</div>
 						<!-- End Single Fun -->
 					</div>
-					<div class="col-lg-3 col-md-6 col-12 text-center mb-5 mb-lg-0">
+					<div class="col-lg-3 col-md-6 col-12 mb-5 mb-lg-0">
 						<!-- Start Single Fun -->
 						<div class="single-fun">
 							<div class="content">
@@ -163,7 +163,7 @@
 						<!-- End Single Fun -->
 					</div>
 
-					<div class="col-lg-3 col-md-6 col-12 text-center mb-5 mb-lg-0">
+					<div class="col-lg-3 col-md-6 col-12 mb-5 mb-lg-0">
 						<!-- Start Single Fun -->
 						<div class="single-fun">
 							<div class="content">
@@ -173,7 +173,7 @@
 						</div>
 						<!-- End Single Fun -->
 					</div>
-					<div class="col-lg-3 col-md-6 col-12 text-center mb-5 mb-lg-0">
+					<div class="col-lg-3 col-md-6 col-12 mb-5 mb-lg-0">
 						<!-- Start Single Fun -->
 						<div class="single-fun">
 							<div class="content">
@@ -193,7 +193,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="section-title">
+						<div class="section-title reveal">
 							<h2>Temukan Inovasi Metode Belajar Anak <span> ADHD </span></h2>
 							<div class="d-flex justify-content-center">
 								<div class="animated-div animatedDiv" id="animatedDiv"></div>
@@ -203,7 +203,7 @@
 				</div>
 				<div class="row my-5 align-items-center">
 					<div class="col-lg-6 col-12">
-						<div class="choose-image">
+						<div class="choose-image reveal-image-left">
 							<img src="{{ asset('img\petulangan1.png') }}" class="img-fluid" alt="#">
 						</div>
 					</div>
@@ -225,15 +225,15 @@
 						</div>
 					</div>
 					<div class="col-lg-6 col-12">
-						<div class="choose-image">
-							<img src="{{ asset('img\petulangan1.png') }}" alt="#">
+						<div class="choose-image reveal-image-right">
+							<img src="{{ asset('img\belajarhitung.png') }}" alt="#">
 						</div>
 					</div>
 				</div>
 				<!-- 3 -->
 				<div class="row my-5 align-items-center">
 					<div class="col-lg-6 col-12">
-						<div class="choose-image">
+						<div class="choose-image reveal-image-left">
 							<img src="{{ asset('img\petulangan1.png') }}" alt="#">
 						</div>
 					</div>
@@ -255,7 +255,7 @@
 						</div>
 					</div>
 					<div class="col-lg-6 col-12">
-						<div class="choose-image">
+						<div class="choose-image reveal-image-right">
 							<img src="{{ asset('img\petulangan1.png') }}" alt="#">
 						</div>
 					</div>
@@ -268,7 +268,7 @@
 
 		<!-- Start clients -->
 		<div class="clients overlay">
-			<div class="container py-5">
+			<div class="container reveal py-5">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-title">
@@ -302,11 +302,11 @@
 				</div>
 			</div>
 		</div>
-		<!--/Ens clients -->
+		<!--/End clients -->
 
 		<!-- Start Newsletter Area -->
 		<section class="newsletter section">
-			<div class="container">
+			<div class="container reveal">
 				<div class="row justify-content-center mb-4">
 					<h4>Belajar Lebih Mudah dan Menyenangkan Bersama Pinkan!</h4>
 				</div>
@@ -316,4 +316,22 @@
 			</div>
 		</section>
 		<!-- /End Newsletter Area -->
+		<script>
+			window.addEventListener('scroll', () => {
+				const reveals = document.querySelectorAll('.reveal, .reveal-image-left, .reveal-image-right');
+
+				reveals.forEach((reveal) => {
+					const windowHeight = window.innerHeight;
+					const revealTop = reveal.getBoundingClientRect().top;
+					const revealpoint = reveal.classList.contains('reveal-image-left') || reveal.classList.contains('reveal-image-right') ? 150 : 50;
+
+					if (revealTop < windowHeight - revealpoint) {
+						reveal.classList.add(reveal.classList.contains('reveal-image-left') ? 'active-left' : reveal.classList.contains('reveal-image-right') ? 'active-right' : 'active');
+					} 
+					else {
+						reveal.classList.remove(reveal.classList.contains('reveal-image-left') ? 'active-left' : reveal.classList.contains('reveal-image-right') ? 'active-right' : 'active');
+					}
+				});
+			});
+		</script>
 @endsection

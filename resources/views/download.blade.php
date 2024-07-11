@@ -7,11 +7,9 @@
 		<div class="bread-inner">
 			<div class="row">
 				<div class="col-12">
-					<h2>Unduh Aplikasi</h2>
+					<h2><span>Unduh</span> Aplikasi</h2>
 					<ul class="bread-list">
-						<li><a href="{{ route('beranda') }}">Beranda</a></li>
-						<li><i class="icofont-simple-right"></i></li>
-						<li class="active">Unduh</li>
+						<li>Mulailah Perjuangan Pinkan Anda dengan Mengunduh Permainan Kita!</li>
 					</ul>
 				</div>
 			</div>
@@ -25,7 +23,7 @@
 		<div  class="row">
 			<div class="col-lg-6 col-md-12 justify-content-center">
 				<div class="title">
-				<img src="{{ asset('img/unduh-baca.png') }}" alt="unduh-baca">
+				<img class="scale-img" src="{{ asset('img/unduh-baca.png') }}" alt="unduh-baca">
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center">
@@ -55,7 +53,7 @@
 			</div>
 			<div class="col-lg-6 col-md-12 ">
 				<div class="title">
-					<img src="{{ asset('img/unduh-hitung.png') }}" alt="unduh-berhitung">
+					<img  class="scale-img" src="{{ asset('img/unduh-hitung.png') }}" alt="unduh-berhitung">
 				</div>
 			</div>
 		</div>
@@ -66,15 +64,33 @@
 
 <!-- Start Newsletter Area -->
 <section class="newsletter section">
-			<div class="container">
-				<div class="row justify-content-center mb-4">
-					<h4>Mengalami Kendala?</h4>
-				</div>
-				<div class="row justify-content-center">
-					<button class="btn">Hubungi Kami</button>
-				</div>
-			</div>
-		</section>
-		<!-- /End Newsletter Area -->
+	<div class="container">
+		<div class="row justify-content-center mb-4">
+			<h4>Mengalami Kendala?</h4>
+		</div>
+		<div class="row justify-content-center">
+			<button class="btn">Hubungi Kami</button>
+		</div>
+	</div>
+</section>
+<!-- /End Newsletter Area -->
+<script type="text/javascript">
+	window.addEventListener('scroll', () => {
+				const reveals = document.querySelectorAll('.scale-img');
+
+				for (let i = 0; i<reveals.length; i++){
+					const windowHeight = window.innerHeight;
+					const revealTop = reveals[i].getBoundingClientRect().top;
+					const revealpoint = 70
+
+					if (revealTop < windowHeight - revealpoint) {
+						reveals[i].classList.add('active-scale')
+					}
+					else {
+						reveals[i].classList.remove('active-scale')
+					}
+				}
+			});
+</script>
 
 @endsection
