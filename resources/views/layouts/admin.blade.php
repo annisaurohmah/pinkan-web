@@ -201,8 +201,9 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Annisa</span>
-                                <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial="A"></figure>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    @yield('first_name')</span>
+                                <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial="@yield('initial')"></figure>
                             </a>
                             <!-- Dropdown - User Information
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -267,14 +268,14 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ __('Ready to Leave?') }}</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{{ __('Anda yakin untuk keluar?') }}</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Pilih "Logout" untuk keluar dari sesi saat ini.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancel') }}</button>
+                    <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Batal') }}</button>
                     <a class="btn btn-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                     <form id="logout-form" action="{{ route('api-logout') }}" method="POST" style="display: none;">
                         @csrf

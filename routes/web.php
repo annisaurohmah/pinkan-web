@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::get('/bantuan-instalasi', function(){
 Route::get('/bantuan-monitor', function(){
     return view('./bantuan-details/bantuan-monitor');})->name('bantuan-monitor');
 Route::get('/bantuan-pantau', function(){
-return view('r/bantuan-details/bantuan-pantau');})->name('bantuan-pantau');
+return view('/bantuan-details/bantuan-pantau');})->name('bantuan-pantau');
 
 Route::get('/detail-bantuan', function () {return view('bantuan-content');})->name('detail-bantuan');
 Route::get('/register', function () {return view('auth.register');})->name('register');
@@ -44,7 +45,7 @@ Route::get('/lupa-password', function () {return view('auth.passwords.email');})
 
 Route::middleware(['auth-api'])->group(function () {
         Route::post('/logout', [LoginController::class, 'logout'])->name('api-logout');
-        Route::get('/home', function () {return view('home');})->name('home');
+        Route::get('/home', [HomeController::class, 'home'])->name('home');
         Route::get('/baca', function () {return view('baca');})->name('baca');
         Route::get('/baca-level', function () {return view('baca-level');})->name('baca-level');
         Route::get('/baca-session', function () {return view('baca-session');})->name('baca-session');
