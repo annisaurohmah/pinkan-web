@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-lg-2 col-12">
                     <div class="get-quote">
-                        <a href="appointment.html" class="btn">Masuk</a>
+                        <a href="{{ route('login') }}" class="btn">Masuk</a>
                     </div>
                 </div>
             </div>
