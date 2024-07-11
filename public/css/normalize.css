@@ -472,6 +472,36 @@ Preloader Area CSS
 .section{
 	padding:100px 0;
 }
+.section .single-main  h1{
+	padding-bottom: 10px;;
+}
+.section .single-main .row {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: center;
+	margin-bottom: 10%;
+	padding: 50px 0px 0px 25px;
+}
+.section .single-main .row h6{
+	text-align: center;
+	padding-bottom: 10px;;
+}
+.section .single-main .row .col-12 {
+	display: flex;
+	flex-direction: column;
+}
+.section .single-main .row .col-12 .title{
+	padding-bottom: 10px;
+}
+.section .single-main ul li:hover{
+	background-color: #1A76D1;
+	transition: all 1s ease;
+	cursor: pointer;
+}
+.section .single-main ul li:hover a{
+	color: #e1e1e1;
+}
 .section-title{
 	text-align: center;
     margin-bottom: 60px;
@@ -489,7 +519,23 @@ Preloader Area CSS
 	font-size:15px;
 	color:#888;
 	margin-top:15px;
+
 }
+.fun-facts .row:last-of-type{
+	margin-right: 10vw;
+}
+.fun-facts .row .content{
+	text-align: center;
+}
+/* .fun-facts .row .col-lg-3.text-center:first-of-type{
+	text-align: right;
+}
+.fun-facts .row .col-lg-3.text-center:last-of-type{
+	text-align: left;
+} */
+/* .fun-facts .row .content p{
+	margin-left: -10px;
+} */
 /* Overlay */
 .overlay{
 	position:relative;
@@ -511,19 +557,25 @@ Preloader Area CSS
 	background-position: center;
 	background-repeat: no-repeat;
 	position: relative;
-	padding: 120px 0px;
+	padding: 30vh 0px;
 }
 .breadcrumbs .bread-inner{
 	z-index:22;
 	text-align:center;
 }
+.breadcrumbs .bread-inner .col-12{
+	animation: fadeIn 5s;
+}
 .breadcrumbs h2{
 	color: #fff;
 	text-transform:capitalize;
-	font-size: 38px;
+	font-size: 76px;
 	font-weight: 700;
 	margin: 0;
 	padding: 0;
+}
+.breadcrumbs h2 span{
+	color: var(--primary3);
 }
 .breadcrumbs .bread-list {
 	display: inline-block;
@@ -533,9 +585,8 @@ Preloader Area CSS
 	display: inline-block;
 	position: relative;
 	color: #fff;
-	font-size: 15px;
+	font-size: 30px;
 	font-weight: 500;
-	text-transform: capitalize;
 }
 .breadcrumbs ul li i {
 	margin: 0px 10px;
@@ -1015,6 +1066,68 @@ a:hover, a:active {
 	padding: 0;
 }
 
+/*--------------------------------------------------------------
+# JavaScript Animations
+--------------------------------------------------------------*/
+/* Reveal */
+.section .reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+/* Active */
+.section .active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+.clients .container.reveal{
+	position: relative;
+	transform: translateY(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+.clients .container.active{
+	transform: translateY(0px);
+	opacity: 1;
+}
+/* Reveal Left Images */
+.section .reveal-image-left{
+	position: relative;
+	transform: translateX(-150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+/* Active Left Images */
+.section .active-left{
+	transform: translateX(0px);
+	opacity: 1;
+}
+/* Reveal Right Images */
+.section .reveal-image-right{
+	position: relative;
+	transform: translateX(150px);
+	opacity: 0;
+	transition: all 2s ease;
+}
+/* Active Right Images */
+.section .active-right{
+	transform: translateX(0px);
+	opacity: 1;
+}
+.unduh-card .scale-img:first-of-type{
+	position: relative;
+	transition: all 2s ease;
+	padding-right: 20px;
+}
+.unduh-card .scale-img{
+	position: relative;
+	transition: all 2s ease;
+}
+.unduh-card  .active-scale{
+	transform: scale(1.1);
+}
+
 /* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
@@ -1100,4 +1213,16 @@ object {
  }
 }
 
-
+@keyframes fadeIn {
+	0% {
+	  opacity: 0;
+	  transform: translateY(150px);
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+	  opacity: 1;
+	  transform: translateY(0px);
+	}
+}
