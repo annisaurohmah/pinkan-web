@@ -23,6 +23,18 @@ Route::get('/unduh', function () {return view('download');})->name('unduh');
 Route::get('/about', function () {return view('about');})->name('about');
 Route::get('/login', function () {return view('auth.login');})->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('api-login');
+Route::get('/bantuan-akun', function (){
+    return view('/bantuan-details/bantuan-akun');})->name('bantuan-akun');
+Route::get('/bantuan-sandi', function(){
+    return view('./bantuan-details/bantuan-kata-sandi');})->name('bantuan-sandi');
+Route::get('/bantuan-hapus', function(){
+    return view('./bantuan-details/bantuan-hapus-akun');})->name('bantuan-hapus');
+Route::get('/bantuan-instalasi', function(){
+    return view('./bantuan-details/bantuan-instalasi');})->name('bantuan-instalasi');
+Route::get('/bantuan-monitor', function(){
+    return view('./bantuan-details/bantuan-monitor');})->name('bantuan-monitor');
+Route::get('/bantuan-pantau', function(){
+return view('/bantuan-details/bantuan-pantau');})->name('bantuan-pantau');
 
 Route::get('/detail-bantuan', function () {return view('bantuan-content');})->name('detail-bantuan');
 Route::get('/register', function () {return view('auth.register');})->name('register');

@@ -21,16 +21,16 @@
                     <div class="main-menu">
                         <nav class="navigation">
                             <ul class="nav menu">
-                                <li class="listnav"><a href="{{ route('beranda') }}">Beranda</a>
+                                <li id="nav-beranda" class="listnav"><a href="{{ route('beranda') }}">Beranda</a>
                                     <!-- <ul class="dropdown">
 													<li><a href="index.html">Home Page 1</a></li>
 												</ul> -->
                                 </li>
-                                <li class="listnav"><a href="{{ route('unduh') }}">Unduh </a></li>
+                                <li id="nav-unduh" class="listnav"><a href="{{ route('unduh') }}">Unduh </a></li>
 
-                                <li class="listnav"><a href="{{ route('bantuan') }}">Bantuan </a></li>
+                                <li id="nav-bantuan" class="listnav"><a href="{{ route('bantuan') }}">Bantuan </a></li>
                                 </li>
-                                <li class="listnav"><a href="{{ route('tentang') }}">Tentang</a>
+                                <li id="nav-tentang" class="listnav"><a href="{{ route('tentang') }}">Tentang</a>
                                 </li>
                             </ul>
                         </nav>
@@ -39,11 +39,29 @@
                 </div>
                 <div class="col-lg-2 col-12">
                     <div class="get-quote">
-                        <a href="{{ route('login') }}" class="btn">Masuk</a>
+                        <a href="appointment.html" class="btn">Masuk</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            let path = window.location.pathname;
+            
+            if (path === '/') {
+                document.getElementById('nav-beranda').classList.add('active');
+            } 
+            else if (path === '/unduh') {
+                document.getElementById('nav-unduh').classList.add('active');
+            } 
+            else if (path === '/tutorial') {
+                document.getElementById('nav-bantuan').classList.add('active');
+            } 
+            else if (path === '/tentang') {
+                document.getElementById('nav-tentang').classList.add('active');
+            }
+        });
+    </script>
 </div>
 <!--/ End Header Inner -->
