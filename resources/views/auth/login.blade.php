@@ -15,18 +15,17 @@
                                 </div>
 
                                 @if ($errors->any())
-                                    <div class="alert alert-danger border-left-danger" role="alert">
-                                        <ul class="pl-4 my-2">
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
+                                <div class="alert alert-danger border-left-danger" role="alert">
+                                    <ul class="pl-4 my-2">
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                                 @endif
 
-                                <form method="GET" action="{{ route('home') }}" class="user">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                                <form method="POST" action="{{ route('api-login') }}" class="user">
+                                    @csrf
                                     <div class="form-group">
                                         <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('Email') }}" value="{{ old('email') }}" required autofocus>
                                     </div>
@@ -71,19 +70,19 @@
 
                                 <hr>
 
-                           
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('forgot-pass') }}">
-                                            {{ __('Lupa Password?') }}
-                                        </a>
-                                    </div>
-                             
 
-                          
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('register') }}">{{ __('Buat Akun') }}</a>
-                                    </div>
-                              
+                                <div class="text-center">
+                                    <a class="small" href="{{ route('forgot-pass') }}">
+                                        {{ __('Lupa Password?') }}
+                                    </a>
+                                </div>
+
+
+
+                                <div class="text-center">
+                                    <a class="small" href="{{ route('register') }}">{{ __('Buat Akun') }}</a>
+                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -8,6 +8,9 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class RegisterController extends Controller
 {
@@ -21,8 +24,6 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
-    use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -41,35 +42,49 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+   
+    protected function validator(Request $request)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'last_name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        $request->validate([
+            'first_name' => 'required', 'string', 'max:255',
+            'last_name' => 'required', 'string', 'max:255',
+            'username' => 'required', 'string', 'max:255',
+            'email' => 'required', 'string', 'email', 'max:255',
+            'date_of_birth' => 'required', 'date', 'date_format:Y-m-d',
+            'password' => 'required', 'string', 'min:8', 'confirmed',
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
-    protected function create(array $data)
+    public function register(Request $request)
     {
-        return User::create([
-            'name' => $data['name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => $data['password'],
-        ]);
+        $this->validator($request);
+
+        try {
+            $response = Http::withHeaders([
+                        'Accept' => 'application/json',
+                        'Content-Type' => 'application/json'
+                        ])->post(env('API_URL') . '/register', [
+                            'email' => $request->email,
+                            'password' => $request->password,
+                            'first_name' => $request->first_name,
+                            'last_name' => $request->last_name,
+                            'username' => $request->username,
+                            'date_of_birth' => $request->date_of_birth
+            ]);
+
+            $data = json_decode($response->getBody(), true);
+
+            if ($response->status() === 200 && isset($data['token'])) {
+                // Simpan token di sesi
+                session(['api_token' => $data['token']]);
+                session()->flash('success', 'Register berhasil!');
+                return redirect()->to(route('home'));
+            }
+
+            return back()->withErrors(['email' => 'Data tidak valid']);
+        } catch (\Exception $e) {
+            return back()->withErrors(['email' => 'Data tidak valid']);
+        }
     }
+
 }

@@ -7,7 +7,7 @@
             <div class="card o-hidden border-0 shadow-lg my-5">
                 <div class="card-body p-0">
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6 d-none d-lg-block bg-register-image"></div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
@@ -15,43 +15,50 @@
                                 </div>
 
                                 @if ($errors->any())
-                                    <div class="alert alert-danger border-left-danger" role="alert">
-                                        <ul class="pl-4 my-2">
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
+                                <div class="alert alert-danger border-left-danger" role="alert">
+                                    <ul class="pl-4 my-2">
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                                 @endif
 
                                 <form action="{{ route('home') }}" class="user">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                     <div class="form-group">
+                                        <label for="first_name">Nama Depan</label>
                                         <input type="text" class="form-control form-control-user" name="first_name" placeholder="{{ __('Nama Depan') }}" value="{{ old('name') }}" required autofocus>
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="last_name">Nama Belakang</label>
                                         <input type="text" class="form-control form-control-user" name="last_name" placeholder="{{ __('Nama Belakang') }}" value="{{ old('last_name') }}" required>
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="email">Email</label>
                                         <input type="email" class="form-control form-control-user" name="email" placeholder="{{ __('Email') }}" value="{{ old('email') }}" required>
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="username">Username</label>
                                         <input type="text" class="form-control form-control-user" name="username" placeholder="{{ __('Username') }}" value="{{ old('username') }}" required>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="date" class="form-control form-control-user" name="date_of_birth" placeholder="{{ __('Tanggal Lahir') }}" value="{{ old('date_of_birth') }}" required>
+                                        <label for="date_of_birth">Tanggal Lahir</label>
+                                        <input type="date" class="form-control form-control-user" name="date_of_birth" placeholder="{{ __('Tanggal Lahir') }}" value="{{ old('date_of_birth') }}" required onfocus="(this.type='date')" onblur="(this.placeholder='Tanggal Lahir')" oninput="(this.placeholder='')">
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="password">Password</label>
                                         <input type="password" class="form-control form-control-user" name="password" placeholder="{{ __('Password') }}" required>
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="password_confirmation">Konfirmasi Password</label>
                                         <input type="password" class="form-control form-control-user" name="password_confirmation" placeholder="{{ __('Konfirmasi Password') }}" required>
                                     </div>
 
