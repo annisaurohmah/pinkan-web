@@ -57,6 +57,7 @@ class LoginController extends Controller
             if ($response->status() === 200 && isset($data['token'])) {
                 // Simpan token di sesi
                 session(['api_token' => $data['token']]);
+                session(['user' => $data['user']]);
                 session()->flash('success', 'Login berhasil!');
                 return redirect()->to(route('home'));
             }

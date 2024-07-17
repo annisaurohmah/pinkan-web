@@ -3,7 +3,8 @@
 @section('main-content')
 
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Merangkai Kata') }}</h1>
+<a href="{{ url()->previous() }}"><i class="fa fa-fw fa-arrow-left"></i> Kembali</a>
+<h1 class="h3 my-4 text-gray-800">{{ $chapter_name }}</h1>
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -20,6 +21,14 @@
 </div>
 @endif
 
+@section('first_name')
+{{ session('user')['first_name'] }}
+@endsection
+
+@section('initial')
+{{ session('user')['first_name'][0] }}
+@endsection
+
 
 <div class="row">
 
@@ -27,12 +36,13 @@
     <div class="col-lg-12 mb-6">
 
         <ol class="list-group list-group-numbered">
-
-            <button type="button" data-url="{{ route('baca-session') }}"  onclick="window.location.href = this.getAttribute('data-url');" class="list-group-item d-flex justify-content-between align-items-start list-group-item-action">
+            @foreach($levels as $level)
+            <button type="button" data-url="{{ route('baca-session', [ $level['level_name'], $level['id'] ]) }}"  onclick="window.location.href = this.getAttribute('data-url');" class="list-group-item d-flex justify-content-between align-items-start list-group-item-action">
                 <div class="ms-2 me-auto">
-                    <div class="font-weight-bold text-primary">Huruf A-D</span></div>
+                    <div class="font-weight-bold text-primary">{{ $level['level_name'] }}</span></div>
                 </div>
             </button>
+            @endforeach
         </ol>
 
     </div>

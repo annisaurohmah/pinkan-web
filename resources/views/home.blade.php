@@ -3,6 +3,7 @@
 @section('main-content')
 
 <!-- Page Heading -->
+ 
 <h1 class="h3 mb-4 text-gray-800">{{ __('Dashboard') }}</h1>
 
 @if (session('success'))
@@ -21,11 +22,11 @@
 @endif
 
 @section('first_name')
-{{ $user['first_name'] }}
+{{ session('user')['first_name'] }}
 @endsection
 
 @section('initial')
-{{ $user['first_name'][0] }}
+{{ session('user')['first_name'][0] }}
 @endsection
 
 <div class="row">

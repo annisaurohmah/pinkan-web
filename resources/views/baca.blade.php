@@ -3,7 +3,7 @@
 @section('main-content')
 
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Game Membaca') }}</h1>
+<h1 class="h3 my-4 text-gray-800">{{ __('Game Membaca') }}</h1>
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -20,6 +20,14 @@
 </div>
 @endif
 
+@section('first_name')
+{{ session('user')['first_name'] }}
+@endsection
+
+@section('initial')
+{{ session('user')['first_name'][0] }}
+@endsection
+
 
 <div class="row">
 
@@ -27,15 +35,13 @@
     <div class="col-lg-12 mb-6">
 
         <ol class="list-group list-group-numbered">
-
-
-
-            <button type="button" data-url="{{ route('baca-level') }}" onclick="window.location.href = this.getAttribute('data-url');" class="list-group-item d-flex justify-content-between align-items-start list-group-item-action">
+            @foreach($chapters as $chapter)
+            <button type="button" data-url="{{ route('baca-level', [$chapter['chapter_name'], $chapter['id']]) }}" onclick="window.location.href = this.getAttribute('data-url');" class="list-group-item d-flex justify-content-between align-items-start list-group-item-action">
                 <div class="ms-2 me-auto">
-                    <div class="font-weight-bold text-primary">Mengenal Huruf</div>
+                    <div class="font-weight-bold text-primary">{{ $chapter['chapter_name'] }}</div>
                 </div>
-                <input type="hidden" name="level" value="Game Membaca">
             </button>
+            @endforeach
         </ol>
 
     </div>

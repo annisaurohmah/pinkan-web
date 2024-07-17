@@ -4,7 +4,7 @@
 
 <!-- Page Heading -->
 <a href="{{ url()->previous() }}"><i class="fa fa-fw fa-arrow-left"></i> Kembali</a>
-<h1 class="h3 my-4 text-gray-800">Permainan {{ $count }}</h1>
+<h1 class="h3 my-4 text-gray-800">{{ __('Permainan 1') }}</h1>
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">

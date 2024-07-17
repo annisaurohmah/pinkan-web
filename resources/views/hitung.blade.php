@@ -20,6 +20,14 @@
 </div>
 @endif
 
+@section('first_name')
+{{ session('user')['first_name'] }}
+@endsection
+
+@section('initial')
+{{ session('user')['first_name'][0] }}
+@endsection
+
 
 <div class="row">
 
@@ -27,18 +35,13 @@
     <div class="col-lg-12 mb-6">
 
         <ol class="list-group list-group-numbered">
-            <button type="button" class="list-group-item d-flex justify-content-between align-items-start list-group-item-action">
+            @foreach($chapters as $chapter)
+            <button type="button" data-url="{{ route('hitung-session', [$chapter['chapter_name'], $chapter['id']]) }}" onclick="window.location.href = this.getAttribute('data-url');" class="list-group-item d-flex justify-content-between align-items-start list-group-item-action">
                 <div class="ms-2 me-auto">
-                    <div class="font-weight-bold text-primary">Mengenal Angka</div>
-
+                    <div class="font-weight-bold text-primary">{{ $chapter['chapter_name'] }}</div>
                 </div>
             </button>
-            <button type="button" data-url="{{ route('hitung-session') }}" onclick="window.location.href = this.getAttribute('data-url');" class="list-group-item d-flex justify-content-between align-items-start list-group-item-action">
-                <div class="ms-2 me-auto">
-                    <div class="font-weight-bold text-primary">Jalan dan Cari</div>
-
-                </div>
-            </button>
+            @endforeach
         </ol>
 
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 
 class CheckApi
@@ -13,12 +14,11 @@ class CheckApi
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
-    {
-        if (!$request->session()->has('api_token')) {
-            return redirect()->route('login')->withErrors('Anda harus login untuk mengakses halaman ini.');
-        }
+    public function handle(Request $request, Closure $next)
+{
+    Log::info('Middleware auth-api executed for route: ' . $request->path());
 
-        return $next($request);
-    }
+    return $next($request);
+}
+
 }

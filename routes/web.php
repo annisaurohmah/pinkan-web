@@ -5,6 +5,8 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,15 +48,16 @@ Route::get('/lupa-password', function () {return view('auth.passwords.email');})
 Route::middleware(['auth-api'])->group(function () {
         Route::post('/logout', [LoginController::class, 'logout'])->name('api-logout');
         Route::get('/home', [HomeController::class, 'home'])->name('home');
-        Route::get('/baca', function () {return view('baca');})->name('baca');
-        Route::get('/baca-level', function () {return view('baca-level');})->name('baca-level');
-        Route::get('/baca-session', function () {return view('baca-session');})->name('baca-session');
-        Route::get('/baca-detail', function () {return view('baca-detail');})->name('baca-detail');
-        Route::get('/hitung', function () {return view('hitung');})->name('hitung');
-        Route::get('/hitung-session', function () {return view('hitung-session');})->name('hitung-session');
+        Route::get('/baca', [IndexController::class, 'chapterBaca'])->name('baca');
+        Route::get('/baca-level/{chapter_name}/{id_chapter}', [IndexController::class, 'levelBaca'])->name('baca-level');
+        Route::get('/baca-session/{level_name}/{id_level}', [IndexController::class, 'sesiBaca'])->name('baca-session');
+        Route::get('/detail/{count}/{id_session}/{id_level}', [IndexController::class, 'detailSesi'])->name('baca-detail');
+        Route::get('/hitung', [IndexController::class, 'chapterHitung'])->name('hitung');
+        Route::get('/hitung-session/{level_name}/{id_chapter}', [IndexController::class, 'sesiHitung'])->name('hitung-session');
+        Route::get('/hitung-detail/{count}/{id_session}/{id_level}', [IndexController::class, 'detailSesi'])->name('hitung-detail');
         Route::get('/level', function () {return view('level');})->name('level');
-        Route::get('/profile', function () {return view('profile');})->name('profile');
-        Route::put('/profile', function() {return view('profile.update');})->name('profile.update');
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+        Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
        
 });
 Route::get('/call-api', [ApiController::class, 'callCloudRunApi']);
