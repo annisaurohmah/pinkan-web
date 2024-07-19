@@ -16,7 +16,7 @@
                     <div class="mobile-nav"></div>
                     <!-- End Mobile Nav -->
                 </div>
-                <div class="col-lg-6 col-md-8 col-12">
+                <div class="col-lg-6 col-md-6 col-12">
                     <!-- Main Menu -->
                     <div class="main-menu">
                         <nav class="navigation">
@@ -32,15 +32,18 @@
                                 </li>
                                 <li id="nav-tentang" class="listnav"><a href="{{ route('tentang') }}">Tentang</a>
                                 </li>
+
+                                <li id="nav-login" class="listnav"> 
+                                    <a href="{{ route('login') }}"><div class="btn"> Masuk</div></a>
+                                </li>
+
                             </ul>
                         </nav>
                     </div>
                     <!--/ End Main Menu -->
                 </div>
-                <div class="col-lg-2 col-12">
-                    <div class="get-quote">
-                        <a href="{{ route('login') }}" class="btn">Masuk</a>
-                    </div>
+                <div class="col-lg-2 md-2 col-12">
+
                 </div>
             </div>
         </div>
@@ -48,17 +51,14 @@
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {
             let path = window.location.pathname;
-            
+
             if (path === '/') {
                 document.getElementById('nav-beranda').classList.add('active');
-            } 
-            else if (path === '/unduh') {
+            } else if (path === '/unduh') {
                 document.getElementById('nav-unduh').classList.add('active');
-            } 
-            else if (path === '/tutorial') {
+            } else if (path === '/tutorial') {
                 document.getElementById('nav-bantuan').classList.add('active');
-            } 
-            else if (path === '/tentang') {
+            } else if (path === '/tentang') {
                 document.getElementById('nav-tentang').classList.add('active');
             }
         });

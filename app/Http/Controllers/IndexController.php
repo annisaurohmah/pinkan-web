@@ -143,9 +143,11 @@ class IndexController extends Controller
 
         if ($response->status() === 200 && isset($data)) {
             $session = $data['summary'];
+            $start = $data['start_time'];
+            $end = $data['end_time'];
             $count = $count;
 
-            return view('baca-detail', compact('session', 'count'));
+            return view('baca-detail', compact('session', 'count', 'start', 'end'));
         }
 
         return view('baca-detail');

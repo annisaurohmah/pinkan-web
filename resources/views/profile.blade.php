@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('main-content')
+@section('madein-content')
 <?php
 use Carbon\Carbon;
 
