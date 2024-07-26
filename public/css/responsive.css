@@ -66,6 +66,9 @@ body{
 .header {
 	margin-bottom: -1px;
 }
+.header .header-inner {
+	height: 9.7vh;
+}
 .header .logo{
 	margin-top: 10px;
 }
@@ -490,14 +493,21 @@ body{
 }
 .slicknav_menu .slicknav_icon-bar{
 	box-shadow:none;
+	margin-top: -10px;
 }
 .slicknav_nav {
 	clear: both;
 	color: #2C2D3F;
-	margin: 0;
 	font-size: .875em;
 	background: transparent;
 	padding-top: 20px;
+	background-color: white;
+    margin-top: 10vh;
+    width: 200vw;
+    margin-left: -20vw;
+}
+.slicknav_nav li {
+	margin-left: 20vw;
 }
 .slicknav_nav li a {
 	color: #2C2D3F;
